@@ -21,6 +21,11 @@ local routine_2 = coroutine.create(routine_func)
 
 coroutine.resume(routine_1)
 coroutine.resume(routine_2)
+
+if coroutine.status(routine_1) == "suspended" then
+    coroutine.resume(routine_1)
+end
+
 print(coroutine.status(routine_1))
 coroutine.resume(routine_1)
 print(coroutine.status(routine_1))
